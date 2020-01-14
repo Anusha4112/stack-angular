@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Apple MacBook Air Core i5 5th Gen",
+      "cost": 59990,
+      "image": "../assets/images/mac.jpeg",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "Hewlett-Packard 15 Core i3 7th Gen",
+      "cost": 32290,
+      "image": "../assets/images/hp.jpeg",
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "name": "Lenovo Ideapad 130 APU Dual Core A6",
+      "cost": 19990,
+      "image": "../assets/images/lenovo.jpeg",
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "name": "Acer Aspire 3 Ryzen 3 Dual Core",
+      "cost": 25990,
+      "image": "../assets/images/acer.jpeg",
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "name": "Asus VivoBook Gaming Core i5 8th Gen",
+      "cost": 51990,
+      "image": "../assets/images/asus.jpeg",
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "name": "Dell 14 3000 Core i3 7th Gen",
+      "cost": 25490,
+      "image": "../assets/images/dell.jpeg",
+      "quantity": 1
+    }
+  ]
+}

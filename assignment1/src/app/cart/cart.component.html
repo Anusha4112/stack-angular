@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 d-inline-flex mt-5">
+      <div class="col-md-8 d-inline-block">
+        <div class="border-bottom mb-3 d-inline-block" *ngFor="let products of getselectedproducts; let i = index">
+          <div class="col-md-12" >
+            <div class="col-md-6  d-inline-block">
+              <img class="w-75" [src]="products.image">
+              <div>
+                <div class="btn-group mt-3 mb-3">
+                  <div class="d-inline-flex">
+                    <button type="button" class="btn btn-info" (click)="decrement(i)">-</button>
+                  </div>
+                  <div class="d-inline-flex">
+                    <input type="text" class="form-control w-100" [(value)]="products.quantity"
+                      [(ngModel)]="products.quantity">
+                  </div>
+                  <div class="d-inline-flex">
+                    <button type="button" class="btn btn-info" (click)="increment(i)">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6  d-inline-block">
+              <div>
+                <h3>{{products.name}}</h3>
+                <p>{{products.cost | currency: 'INR'}}</p>
+              </div>
+              <div>
+                <button type="button" class="btn btn-danger" (click)="removeproduct(products)">Remove from Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" *ngIf="!getselectedproducts?.length > 0">
+          <h2 class="text-danger">{{messagedata}}</h2>
+          <img src="../../assets/images/empty.jpg" class="w-50">
+        </div>
+      </div>
+      <div class="col-md-4  mt-5 d-inline-block">
+        <div class="btn-group d-grid">
+          <a class="btn btn-secondary mb-3 rounded text-white" routerLink="/user">
+            Back to product List
+          </a>
+          <button class="btn btn-warning mb-3 rounded text-white" type="button" (click)="placeOrder()">Place
+            order</button>
+          <a class="btn btn-secondary mb-3 rounded text-white" routerLink="/orderlist">
+            Go to ordered List
+          </a>
+          <!-- <p>{{products.cost * products.quantity}}</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

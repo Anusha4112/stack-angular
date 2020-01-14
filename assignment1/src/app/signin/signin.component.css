@@ -1,0 +1,18 @@
+.signin{
+  border: 1px solid #cfcfcf;
+  padding: 30px;
+
+}
+.forgot{
+  cursor: pointer;
+  color: #007bff;
+  font-size: 12px;
+}
+.signup a{
+  cursor: pointer;
+  color: #007bff;
+  font-size: 15px;
+}
+.validation-class{
+  color: red;
+}

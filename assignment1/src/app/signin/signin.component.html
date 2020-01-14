@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5 signin mt-5 rounded">
+      <h3 class=" mb-3">Log in </h3>
+      <form [formGroup]="profileForm" (ngSubmit)="profileForm.valid && onSubmit(profileForm)">
+        <div class="form-group">
+          <label>Company Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="email"
+            [ngClass]="{'has-invalid': profileForm.get('email').touched && profileForm.get('email').invalid}">
+          <div class="validation-class" *ngIf="profileForm.get('email').touched && profileForm.get('email').invalid">
+            <div *ngIf="profileForm.get('email').errors.required">Email is required</div>
+            <div *ngIf="profileForm.get('email').errors.email">Email must be a valid email address</div>
+            <div *ngIf="profileForm.get('email').errors.pattern">Email must be a valid pattern</div>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password"
+            [ngClass]="{'has-invalid': profileForm.get('password').touched && profileForm.get('password').invalid}">
+          <div class="float-right mb-3 forgot">
+            <a>Forgot Password?</a>
+          </div>
+          <div class="validation-class"
+            *ngIf="profileForm.get('password').touched && profileForm.get('password').invalid">
+            <div *ngIf="profileForm.get('password').errors.required">Password is required</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="!profileForm.valid">Login</button>
+        <div class="text-center mt-4 signup">
+          Need an account? <a routerLink="/signup">Signup</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

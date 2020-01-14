@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+
+    <div class="col-md-6 registerForm rounded">
+        <h3>Sign Up</h3>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+        <div class="row">
+          <div class="col">
+              <label >First name</label>
+            <input type="text" class="form-control" placeholder="First name" formControlName="firstname"  [ngClass]="{ 'has-invalid' : registerForm.get('firstname').touched && registerForm.get('firstname').invalid}">
+            <div class="validation-class" *ngIf="registerForm.get('firstname').touched && registerForm.get('firstname').invalid">
+                <div *ngIf="registerForm.get('firstname').errors.required">First Name is required</div>
+            </div>
+          </div>
+          <div class="col">
+              <label >Last name</label>
+            <input type="text" class="form-control" placeholder="Last name" formControlName="lastname" [ngClass]="{'has-invalid': registerForm.get('lastname').touched && registerForm.get('lastname').invalid}">
+            <div class="validation-class" *ngIf="registerForm.get('lastname').touched && registerForm.get('lastname').invalid">
+                <div *ngIf="registerForm.get('lastname').errors.required">Last Name is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-12 form-group">
+            <label >Country</label>
+            <select  class="form-control" formControlName="selectcountry"  [ngClass]="{'has-invalid': registerForm.get('selectcountry').touched && registerForm.get('selectcountry').invalid}">
+              <option *ngFor='let country of Country'>{{country}}</option>
+              <div class="validation-class" *ngIf="registerForm.get('selectcountry').touched && registerForm.get('selectcountry').invalid">
+                  <div *ngIf="registerForm.get('selectcountry').errors.required">Country is required</div>
+              </div>
+              <!-- <div *ngIf="submitted && formFields.selectcountry.errors && (selectcountry.dirty || selectcountry.touched)">
+                  <div *ngIf="formFields.selectcountry.errors.required">Country is required</div>
+              </div> -->
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <label >Employer</label>
+            <input type="text" class="form-control"  placeholder="Organization or Company name" formControlName="employee"  [ngClass]="{'has-invalid': registerForm.get('employee').touched && registerForm.get('employee').invalid}">
+            <div class="validation-class" *ngIf="registerForm.get('employee').touched && registerForm.get('employee').invalid">
+                <div *ngIf="registerForm.get('employee').errors.required">Employee is required</div>
+            </div>
+            <!-- <div *ngIf="submitted && formFields.employee.errors && (employee.dirty || employee.touched)">
+                <div *ngIf="formFields.employee.errors.required">Employer is required</div>
+            </div> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <label >Email</label>
+            <input type="email" class="form-control" placeholder="first.last@companyname.com" formControlName="email" [ngClass]="{'has-invalid': registerForm.get('email').touched && registerForm.get('email').invalid}">
+            <div class="validation-class" *ngIf="registerForm.get('email').touched && registerForm.get('email').invalid">
+                <div *ngIf="registerForm.get('email').errors.required">Email is required</div>
+                <div *ngIf="registerForm.get('email').errors.email">Email must be a valid email address</div>
+                <div *ngIf="registerForm.get('email').errors.pattern">Email must be a valid pattern</div>
+
+            </div>
+            <!-- <div *ngIf="submitted && formFields.email.errors && (email.dirty || email.touched)">
+                <div *ngIf="formFields.email.errors.required">Email is required</div>
+                <div *ngIf="formFields.email.errors.email">Email must be a valid email address</div>
+                <div *ngIf="formFields.email.errors.pattern">Email must be a valid pattern</div>
+            </div> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <label >Password</label>
+            <input type="password" class="form-control"  placeholder="At least 8 characters" formControlName="password" [ngClass]="{'has-invalid': registerForm.get('password').touched && registerForm.get('password').invalid}">
+            <div class="showpassword float-right"><a >Show</a></div>
+            <div class="validation-class" *ngIf="registerForm.get('password').touched && registerForm.get('password').invalid">
+                <div *ngIf="registerForm.get('password').errors.required">Password is required</div>
+                <div *ngIf="registerForm.get('password').errors.minlength">Password must be at least 8 characters</div>
+            </div>
+            <!-- <div *ngIf="submitted && formFields.password.errors && (password.dirty || password.touched)">
+                <div *ngIf="formFields.password.errors.required">Password is required</div>
+                <div *ngIf="formFields.password.errors.minlength">Password must be at least 8 characters</div>
+            </div> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox"  formControlName="checksub" [ngClass]="{'has-invalid': registerForm.get('checksub').touched && registerForm.get('checksub').invalid}">
+              <label class="form-check-label">
+                  <div class="validation-class" *ngIf="registerForm.get('checksub').touched && registerForm.get('checksub').invalid">
+                      <div *ngIf="registerForm.get('checksub').errors.required">Please check the checkbox</div>
+                  </div>
+               I'd like to receive occasional email updates about upcoming events from companyABC, analyst reports. I can unsubcribe at any time.
+              </label>
+              <!-- <div *ngIf="submitted && formFields.checksub.errors && (checksub.dirty || checksub.touched)">
+                  <div *ngIf="formFields.checksub.errors.required">First Name is required</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <p>By clicking "Sin up" I agree that i have read and agree to CompanyABC <a href="#">Privacy and security policy</a> and <a href="#">Terms of use</a>  </p>
+        <button class="btn btn-primary btn-block" type="submit" [disabled]="!registerForm.valid">Sign Up</button>
+       <div class="text-center mt-2 already-link">
+          <a  routerLink="/signin">Already have an account? Login</a>
+       </div>
+      </form>
+    </div>
+  </div>
+</div>

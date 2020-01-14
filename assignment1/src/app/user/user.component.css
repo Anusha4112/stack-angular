@@ -1,0 +1,21 @@
+.userData{
+  color: #8cede8;
+  font-size: 20px;
+  background-color: #106a65;
+
+}
+.userData p{
+  margin-top: 10px;
+  text-align: center;
+}
+.card-img-top{
+  height: 180px;
+}
+a[routerLink]{
+text-decoration: none;
+}
+@media (min-width: 768px){
+  .col-md-3 {
+    max-width: 29%;
+}
+}

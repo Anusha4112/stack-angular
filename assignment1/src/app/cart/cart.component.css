@@ -1,0 +1,15 @@
+.form-control{
+width: 30%;
+}
+.btn-secondary a{
+  text-decoration: none;
+}
+.d-grid{
+  display: grid;
+}
+h3{
+  font-size: 23px;
+}
+.btn a{
+  text-decoration: none;
+}
